@@ -1,55 +1,244 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TravelX</title>
-<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Inter',sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  background:#fff;
+  position:sticky;
+  top:0;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+.logo{font-weight:700;font-size:22px;color:#ff385c;}
+.nav-links a{
+  margin:0 15px;
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+}
+
+/* HERO */
+.hero{
+  padding:80px 8%;
+  background:linear-gradient(120deg,#ff385c,#ff7a18);
+  color:#fff;
+}
+.hero h1{
+  font-size:48px;
+  margin-bottom:20px;
+}
+.search-box{
+  display:flex;
+  background:#fff;
+  border-radius:50px;
+  padding:10px;
+  width:60%;
+}
+.search-box input{
+  flex:1;
+  border:none;
+  padding:10px;
+  outline:none;
+}
+.search-box button{
+  background:#ff385c;
+  border:none;
+  color:#fff;
+  padding:10px 20px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+/* SECTION */
+.section{
+  padding:60px 8%;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.card{
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+}
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.card-body{
+  padding:15px;
+}
+.price{color:#ff385c;font-weight:600;}
+
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  text-align:center;
+}
+.feature{
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+}
+
+/* FOOTER */
+footer{
+  background:#111;
+  color:#fff;
+  padding:40px 8%;
+  text-align:center;
+}
+
+</style>
 </head>
 
 <body>
 
-<div id="loader" class="loader"><h1>Loading...</h1></div>
-
-<header>
-<h2>TravelX</h2>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="destinations.html">Destinations</a>
-<a href="packages.html">Packages</a>
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="logo">TravelX</div>
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="about.html">about</a>
 <a href="contact.html">Contact</a>
-<a href="dashboard.html">Dashboard</a>
-</nav>
-</header>
+</div>
+</div>
 
+<!-- HERO -->
 <section class="hero">
-<h1>Explore The World 🌍</h1>
-<p>Discover amazing places</p>
-<button onclick="scrollToSection()">Start Journey</button>
-</section>
+<h1>Find Your Next Stay</h1>
+<p>Explore amazing destinations with TravelX</p>
 
-<section id="packages">
-<h2 style="text-align:center">Popular Packages</h2>
+<div class="search-box">
+<input type="text" placeholder="Where are you going?">
+<button>Search</button>
+</div>
+</section>
+<section class="section">
+<h2>Explore Stays</h2>
+
+<input type="text" id="searchInput" placeholder="Search destinations..." onkeyup="filterCards()" style="margin:20px 0;padding:10px;width:100%;max-width:400px;">
+
+<div class="cards" id="cardsContainer">
+
+<!-- CARD -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<div class="card-body">
+<h3>Goa, India</h3>
+<p>⭐ 4.8 • Beach Stay</p>
+<p class="price">₹3,500 / night</p>
+</div>
+</div>
 
 <div class="card">
-<img src="https://source.unsplash.com/300x200/?goa">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<div class="card-body">
+<h3>Manali, India</h3>
+<p>⭐ 4.7 • Mountain Cabin</p>
+<p class="price">₹2,800 / night</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<div class="card-body">
+<h3>Kerala, India</h3>
+<p>⭐ 4.9 • Houseboat</p>
+<p class="price">₹4,200 / night</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
+<div class="card-body">
+<h3>Paris, France</h3>
+<p>⭐ 4.6 • City Apartment</p>
+<p class="price">₹8,500 / night</p>
+</div>
+</div>
+
+</div>
+</section>
+<!-- DESTINATIONS -->
+<section class="section">
+<h2>Popular Destinations</h2>
+
+<div class="cards">
+<div class="card">
+<img src="https://picsum.photos/400/300?1">
+<div class="card-body">
 <h3>Goa</h3>
-<p>₹10,000</p>
+<p class="price">₹10,000</p>
+</div>
 </div>
 
 <div class="card">
-<img src="https://source.unsplash.com/300x200/?manali">
+<img src="https://picsum.photos/400/300?2">
+<div class="card-body">
 <h3>Manali</h3>
-<p>₹15,000</p>
+<p class="price">₹15,000</p>
+</div>
 </div>
 
 <div class="card">
-<img src="https://source.unsplash.com/300x200/?kerala">
+<img src="https://picsum.photos/400/300?3">
+<div class="card-body">
 <h3>Kerala</h3>
-<p>₹20,000</p>
+<p class="price">₹18,000</p>
+</div>
 </div>
 
+</div>
 </section>
 
-<script src="script.js"></script>
+<!-- FEATURES -->
+<section class="section">
+<h2>Why TravelX?</h2>
+
+<div class="features">
+<div class="feature">✈️ Easy Booking</div>
+<div class="feature">💰 Best Prices</div>
+<div class="feature">🌍 Global Destinations</div>
+<div class="feature">⭐ Premium Service</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 TravelX. All rights reserved.</p>
+</footer>
+
 </body>
 </html>

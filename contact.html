@@ -1,16 +1,49 @@
-<form onsubmit="return validate()">
-<input type="text" id="name" placeholder="Name"><br>
-<input type="email" id="email" placeholder="Email"><br>
-<textarea id="msg"></textarea><br>
-<button>Submit</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelX - Contact</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="logo">TravelX</div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="background:linear-gradient(120deg,#ff7a18,#ff385c)">
+<h1>Contact Us</h1>
+</section>
+
+<!-- FORM -->
+<section class="section">
+
+<form id="contactForm" class="card" style="max-width:500px;margin:auto;">
+<h2>Send Message</h2>
+
+<input type="text" id="name" placeholder="Your Name">
+<input type="email" id="email" placeholder="Your Email">
+<textarea id="message" placeholder="Message"></textarea>
+
+<button type="submit">Send</button>
+
+<p id="status" style="margin-top:10px;"></p>
+
 </form>
 
-<script>
-function validate(){
-if(name.value==""||email.value==""){
-alert("Fill all fields");
-return false;
-}
-alert("Success!");
-}
-</script>
+</section>
+
+<script src="main.js"></script>
+</body>
+</html>
