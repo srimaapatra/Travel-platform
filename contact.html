@@ -1,0 +1,16 @@
+<form onsubmit="return validate()">
+<input type="text" id="name" placeholder="Name"><br>
+<input type="email" id="email" placeholder="Email"><br>
+<textarea id="msg"></textarea><br>
+<button>Submit</button>
+</form>
+
+<script>
+function validate(){
+if(name.value==""||email.value==""){
+alert("Fill all fields");
+return false;
+}
+alert("Success!");
+}
+</script>
